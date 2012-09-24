@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+body{
+	width:1200px;
+	margin:10px auto;
+	font-family:Arial, "MS Trebuchet", sans-serif;
+}
+
+p{
+	margin:0 0 20px 0;	
+}
+
+p, li{
+	line-height:20px;
+}
+header{
+	color: #1FB8E4;
+}
+header#page_header{
+	
+	width:100%; text-align:center;
+}
+
+#page_header nav ul li, footer#page_footer nav ul li{
+	padding:0;
+	margin: 0 20px 0 0;
+	display:inline;
+}
+
+footer#page_footer{
+	clear: both;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin: 700px 0 0 0;
+}
+
+fieldset{
+	width: 416px;
+	border: none;
+	background-color: #ddd;
+	margin: 0px auto;
+}
+
+fieldset legend{
+	background-color: #ddd;
+	padding: 0 64px 0 2px;
+}
+
+fieldset>ol{list-style: none;
+	padding:0;
+	margin: 2px;
+}
+
+fieldset>ol>li{
+	margin: 0 0 9px 0;
+	padding: 0;
+}
+
+#body {
+	float:left;width:1200px;heigh:1200px;border:5px;
+}

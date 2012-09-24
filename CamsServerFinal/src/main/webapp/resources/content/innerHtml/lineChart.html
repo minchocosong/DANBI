@@ -1,0 +1,74 @@
+<div id="chart1" class="k-content">
+	
+		<div class="chart-wrapper">
+			<div id="chart1"></div>
+		</div>
+		<script>
+		 var stocksDataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: function() {
+                                return "resources/content/dataviz/dashboards/simpletest.json";
+                            },
+                            dataType: "json"
+                        }
+                    },
+                    group: {
+                        field: "type"
+                    },
+                    sort: {
+                        field: "date",
+                        dir: "asc"
+                    },
+                });
+                function createChart() {
+                    $("#chart1").kendoChart({
+                        theme: $(document).data("kendoSkin") || "default",
+                        title: { text: "Test" },
+                        dataSource: stocksDataSource,
+                        series: [{
+                            type: "line",
+                            field: "value",
+                            name: "value",
+                            groupNameTemplate: "#= group.value # "
+                        }],
+                        legend: {
+                            position: "bottom"
+                        },
+                        valueAxis: {
+                            labels: {
+                                format: "{0}",
+                                skip: 2,
+                                step: 2
+                            }
+                        },
+                        categoryAxis: {
+                            field: "date",
+                            labels: {
+                                template : "#=value# Month"
+                            }
+                        },
+                        tooltip: {
+                            visible: true,
+                            format: "{0}"
+                        },
+                        chartArea:{
+                        	width : 1200,
+                        	height :400
+                        }
+                    });
+                }
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        // Initialize the chart with a delay to make sure
+                        // the initial animation is visible
+                        createChart();
+
+                        $("#chart1").bind("kendo:skinChange", function(e) {
+                            createChart();
+                        });
+                    }, 400);
+                });
+            </script>
+             
+	</div>
